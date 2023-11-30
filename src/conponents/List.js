@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function List({
+const List = React.memo (({
   id, title, complete, todoData, setTodoData, provided, snapshot
-}) {
+}) => {
   const handleClick = (id) => {
     let newTodoData = todoData.filter((data) => data.id !== id);
     // this.setState({ todoData: newTodoData });
@@ -54,4 +54,8 @@ export default function List({
       </div>
     </div>
   );
-}
+})
+
+
+export default List
+

@@ -2,8 +2,7 @@ import React from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import List from "./List";
 
-export default function Lists({ todoData, setTodoData }) {
-
+const Lists = React.memo(({ todoData, setTodoData }) => {
   const handleEnd = (result) => {
     // 목적지가 없으면 함수 종료
     if (!result.destination) return;
@@ -33,7 +32,7 @@ export default function Lists({ todoData, setTodoData }) {
                   index={index}
                 >
                   {(provided, snapshot) => (
-                    <List 
+                    <List
                       key={data.id}
                       id={data.id}
                       title={data.title}
@@ -53,4 +52,5 @@ export default function Lists({ todoData, setTodoData }) {
       </DragDropContext>
     </div>
   );
-}
+});
+export default Lists;
