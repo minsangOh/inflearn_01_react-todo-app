@@ -25,6 +25,8 @@ const List = React.memo(
 
       // 업데이트된 상태로 setTodoData 호출
       setTodoData(newTodoData);
+      localStorage.setItem('todoData', JSON.stringify(newTodoData))
+
     };
 
     const handleEditChange= (event) => {
@@ -41,6 +43,7 @@ const List = React.memo(
         return data
       })
       setTodoData(newTodoData)
+      localStorage.setItem('todoData', JSON.stringify(newTodoData))
       setIsEditing(false)
     }
 

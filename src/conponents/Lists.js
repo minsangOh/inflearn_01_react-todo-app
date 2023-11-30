@@ -17,6 +17,8 @@ const Lists = React.memo(({ todoData, setTodoData, handleClick }) => {
     // 원하는 자리에 reorderedItem을 insert. 숫자 0은 0개를 지우겠다는 뜻
     newTodoData.splice(result.destination.index, 0, reorderedItem);
     setTodoData(newTodoData);
+    localStorage.setItem('todoData', JSON.stringify(newTodoData))
+
   };
 
   return (
