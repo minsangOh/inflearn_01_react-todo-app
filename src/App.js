@@ -1,11 +1,20 @@
-import React, { useState } from "react";
-import List from "./conponents/Lists";
+import React, { useState, useCallback } from "react";
+import Lists from "./conponents/Lists";
 import Form from "./conponents/Form";
 
 export default function App() {
   // 첫 번째 인수는 변수이름, 두 번째 인수는 State를 정하는 함수 이름
   const [todoData, setTodoData] = useState([]);
   const [value, setValue] = useState("");
+
+  const handleClick = useCallback(
+    (id) => {
+      let newTodoData = todoData.filter((data) => data.id !== id);
+      // this.setState({ todoData: newTodoData });
+      setTodoData(newTodoData);
+    },
+    [todoData]
+  );
 
   const handlesubmit = (e) => {
     e.preventDefault();
@@ -15,7 +24,7 @@ export default function App() {
       id: Date.now(),
       title: value,
       complated: false,
-    }; 
+    };
 
     // 원래 있던 할 일에 새로운 할 일 추가
     // this.setState({ todoData: [...todoData, newTodo], value: "" });
@@ -32,7 +41,11 @@ export default function App() {
         <div className="flex justify-between mb-3">
           <h1>할 일 목록</h1>
         </div>
-        <List todoData={todoData} setTodoData={setTodoData} />
+        <Lists
+          todoData={todoData}
+          setTodoData={setTodoData}
+          handleClick={handleClick}
+        />
         <Form value={value} setValue={setValue} handlesubmit={handlesubmit} />
       </div>
     </div>
