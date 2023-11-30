@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./App.css";
 import List from "./conponents/List";
 import Form from "./conponents/Form";
 
