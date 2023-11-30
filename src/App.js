@@ -24,7 +24,6 @@ export default function App() {
     setValue("");
   };
 
-
   return (
     <div className="container">
       <div className="todoBlock">
@@ -33,6 +32,8 @@ export default function App() {
         </div>
         <List todoData={todoData} setTodoData={setTodoData} />
         <Form value={value} setValue={setValue} handlesubmit={handlesubmit} />
+
+        <h1 class="text-3xl font-bold underline">Hello world!</h1>
       </div>
     </div>
   );
