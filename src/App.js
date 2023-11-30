@@ -32,6 +32,10 @@ export default function App() {
     setValue("");
   };
 
+  const handleRemoveClick =() =>{
+    setTodoData([])
+  }
+
   return (
     // 플렉스로, 세로 중앙 정렬, 가로 중앙 정렬, 너비를 화면이랑 동일, 높이를 화면이랑 동일, 배경색 설정
     <div className="flex items-center justify-center w-screen h-screen bg-blue-100">
@@ -40,6 +44,7 @@ export default function App() {
         {/* 플렉스로, 플렉스 아이템을 양 끝에 정렬, 아래쪽 마진 */}
         <div className="flex justify-between mb-3">
           <h1>할 일 목록</h1>
+          <button onClick={handleRemoveClick}>Delete All</button>
         </div>
         <Lists
           todoData={todoData}
