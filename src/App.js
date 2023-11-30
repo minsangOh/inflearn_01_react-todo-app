@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import List from "./conponents/List";
+import List from "./conponents/Lists";
 import Form from "./conponents/Form";
 
 export default function App() {
